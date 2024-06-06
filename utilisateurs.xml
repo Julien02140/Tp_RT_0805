@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<utilisateur>
-    <name>Boutreaux</name>
-    <firstname>Luc</firstname>
-    <age>23</age>
-    <pseudo>Julien</pseudo>
-    <email>boutreaux.sebastien@orange.fr</email>
-    <password>jjj</password>
-</utilisateur>
+<listeUtilisateurs>
+    <utilisateur>
+        <name>Boutreaux</name>
+        <firstname>aa</firstname>
+        <age>23</age>
+        <pseudo>alexandre</pseudo>
+        <email>julien.boutreaux@orange.fr</email>
+        <password>jj</password>
+    </utilisateur>
+</listeUtilisateurs>
