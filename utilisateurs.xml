@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<utilisateur>
+    <name>Boutreaux</name>
+    <firstname>Luc</firstname>
+    <age>23</age>
+    <pseudo>Julien</pseudo>
+    <email>boutreaux.sebastien@orange.fr</email>
+    <password>jjj</password>
+</utilisateur>
