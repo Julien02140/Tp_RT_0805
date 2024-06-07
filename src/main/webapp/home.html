@@ -1,0 +1,75 @@
+{% include 'base_site.html' %}
+<body>
+        <h1>Bienvenue, <span id="username"></span>!</h1>
+        <p>Les films populaires du moment</p>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+            // function load_name_user(){
+            document.addEventListener('DOMContentLoaded', (event) => {
+            fetch('/rest/username')
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Non autorisé');
+                    }
+                })
+                .then(data => {
+                        // Mettre à jour le contenu HTML avec le pseudo
+                        document.getElementById('username').textContent = data.username;
+                    })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    window.location.href = '../index.html';
+                });
+            });
+            // }
+
+            // function loadPopularFilms() {
+            fetch('/rest/films_populaires')
+                .then(response => response.json())
+                .then(data => {
+                    const filmListContainer = document.getElementById('film-list-container');
+                    if (data && data.length > 0) {
+                        // Créer une liste de films
+                        const filmList = document.createElement('ul');
+                        filmList.className = 'film-list';
+                        data.forEach(film => {
+                            // Créer un élément de liste pour chaque film
+                            const filmListItem = document.createElement('li');
+                            filmListItem.className = 'film-list-item';
+                            filmListItem.setAttribute('data-bs-toggle', 'tooltip');
+                            filmListItem.setAttribute('data-bs-placement', 'top');
+                            filmListItem.setAttribute('title', film.title);
+
+                            // Ajouter le titre du film
+                            const filmTitle = document.createElement('h5');
+                            filmTitle.textContent = film.title;
+                            filmListItem.appendChild(filmTitle);
+
+                            // Ajouter l'image du film avec un lien vers la description
+                            const filmPoster = document.createElement('a');
+                            filmPoster.href = `/description_film?film_id=${film.id}`;
+                            const img = document.createElement('img');
+                            img.src = `https://image.tmdb.org/t/p/w342/${film.poster_path}`;
+                            img.alt = `${film.title} Poster`;
+                            filmPoster.appendChild(img);
+                            filmListItem.appendChild(filmPoster);
+
+                                // Ajouter l'élément de film à la liste de films
+                            filmList.appendChild(filmListItem);
+                        });
+                        // Ajouter la liste de films au conteneur
+                        filmListContainer.appendChild(filmList);
+                    } else {
+                        // Afficher un message si aucun film n'est disponible
+                        filmListContainer.innerHTML = '<p>Aucun film disponible pour le moment.</p>';
+                    }
+                })
+                .catch(error => console.error('Error fetching films:', error));
+            // }
+            </script>
+
+</body>
+</html>

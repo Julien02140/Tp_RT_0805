@@ -79,7 +79,7 @@ public class MyResource {
                         session.setAttribute("username", pseudo);
                         session.setAttribute("isAdmin", user.isAdmin());
 
-                        UriBuilder uriBuilder = UriBuilder.fromPath("../base_site.html");
+                        UriBuilder uriBuilder = UriBuilder.fromPath("../home.html");
                         return Response.seeOther(uriBuilder.build()).build();
                     }
                 }
@@ -109,6 +109,41 @@ public class MyResource {
             }
         }
         return Response.status(Response.Status.UNAUTHORIZED).build();
+    }
+
+    public Liste_Films lire_film_xml(){
+        try {
+            JAXBContext context = JAXBContext.newInstance(Liste_Films.class);
+
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            File file = new File("films.xml");
+
+            Liste_Films films;
+
+            if (file.exists()) {
+                films = (Liste_Films) unmarshaller.unmarshal(file);
+            } else {
+                System.out.println("erreur le fichier n'existe pas");
+                films = new Liste_Films();
+            }
+
+            return films;
+        }catch (JAXBException e) {
+            e.printStackTrace();
+            System.out.println("Erreur lors de l'ajout du film");
+            Liste_Films films = new Liste_Films();
+            return films;
+        }
+    }
+
+    @GET
+    @Path("films_populaires")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response films_populaires(){
+        Liste_Films liste_films = lire_film_xml();
+        List<Film> films = liste_films.getListeFilms();
+        List<Film> filmsPopulaires = films.subList(0, Math.min(20, films.size()));
+        return Response.ok(filmsPopulaires).build();
     }
 }
 
