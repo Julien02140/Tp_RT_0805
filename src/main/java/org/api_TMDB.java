@@ -152,6 +152,13 @@ public class api_TMDB {
                         String poster_path = movie.getString("poster_path");
                         String backdrop_path = movie.getString("backdrop_path");
 
+                        JSONArray genreIdsArray = movie.getJSONArray("genre_ids");
+                        List<Integer> genreIds = new ArrayList<>();
+                        
+                        for (int k = 0; k < genreIdsArray.length(); k++) {
+                            genreIds.add(genreIdsArray.getInt(k));
+                        }
+
 
                         //problème d'encodage utf-8 donc on convertit en base64
                         String overview64 = Base64.getEncoder().encodeToString(overview.getBytes());
@@ -164,9 +171,10 @@ public class api_TMDB {
                         System.out.println("nb vote : " + vote_count);
                         System.out.println("id : " + id);
                         System.out.println("overview : " + overview_decode);
+                        System.out.println("genres : " + genreIds);
                         
                         //decode à chaque fois le titre et overview
-                        Film film = new Film(title64, release_date,moyenne,nb_vote, id_string, overview64,poster_path,backdrop_path);
+                        Film film = new Film(title64, release_date,moyenne,nb_vote, id_string, overview64,poster_path,backdrop_path,genreIds);
                         ajouter_film_xml(film);
                         System.out.println("Ajout du film dans le fichier xml");
 

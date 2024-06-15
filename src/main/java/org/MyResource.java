@@ -8,6 +8,7 @@ import jakarta.ws.rs.Produces;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.ws.rs.Consumes;
@@ -116,9 +117,35 @@ public class MyResource {
             return films;
         }catch (JAXBException e) {
             e.printStackTrace();
-            System.out.println("Erreur lors de l'ajout du film");
+            System.out.println("Erreur lors de la lecture");
             Liste_Films films = new Liste_Films();
             return films;
+        }
+    }
+
+    public Liste_genres lire_genre_xml(){
+        try {
+            JAXBContext context = JAXBContext.newInstance(Liste_genres.class);
+
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            File file = new File("../genres.xml");
+
+            Liste_genres genres;
+
+            if (file.exists()) {
+                genres = (Liste_genres) unmarshaller.unmarshal(file);
+            } else {
+                System.out.println("erreur le fichier n'existe pas");
+                genres = new Liste_genres();
+            }
+
+            return genres;
+
+        }catch (JAXBException e) {
+            e.printStackTrace();
+            System.out.println("Erreur lors de l'ajout du film");
+            Liste_genres genres = new Liste_genres();
+            return genres;
         }
     }
 
@@ -160,6 +187,15 @@ public class MyResource {
     }
 
     @GET
+    @Path("recherche_genre")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response rechercheGenre(@QueryParam("genre") String genre_id, @Context HttpServletRequest request){
+        System.out.println("id du genre recherche : " + genre_id);
+        UriBuilder uriBuilder = UriBuilder.fromPath("../recherche.html").queryParam("genre",genre_id);
+        return Response.seeOther(uriBuilder.build()).build();
+    }
+
+    @GET
     @Path("trouver_film")
     @Produces(MediaType.APPLICATION_JSON)
     public Response trouverFilm(@QueryParam("film_id") String film_id, @Context HttpServletRequest request){
@@ -185,6 +221,77 @@ public class MyResource {
             return Response.status(Response.Status.NOT_FOUND).entity("Film not found").build();
         }
     }
+
+    @GET
+    @Path("rechercher_film")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response rechercherFilm(@QueryParam("mot") String mot, @Context HttpServletRequest request){
+        Liste_Films liste_films = lire_film_xml();
+        List<Film> films = liste_films.getListeFilms();
+        List<Film> film_correspondant = new ArrayList<>();
+ 
+        for (Film film : films) {
+            if (film.getTitle().toLowerCase().startsWith(mot.toLowerCase())) {
+                film_correspondant.add(film);
+            }
+        }
+
+        System.out.println("Liste de film correspondant trouve");
+        return Response.ok(film_correspondant).build();
+
+    }
+
+    @GET
+    @Path("trouver_film_genre")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response trouverFilmGenre(@QueryParam("genre_id") int genre_id, @Context HttpServletRequest request){
+        System.out.println("Dans la fonction trouver_film_genre");
+        Liste_Films liste_films = lire_film_xml();
+        List<Film> films = liste_films.getListeFilms();
+        List<Film> film_correspondant = new ArrayList<>();
+        // Liste_genres liste_genres = lire_genre_xml();
+        // List<Genre> genres = liste_genres.getListeGenres();
+
+        for (Film film : films) {
+            List<Integer> genre_film_id = film.getGenreId();
+            for(int i=0;i<genre_film_id.size();i++){
+                if (genre_film_id.get(i) == genre_id){
+                    film_correspondant.add(film);
+                }
+            }
+        }
+        
+        return Response.ok(film_correspondant).build();
+    }
+
+
+
+//     @app.route('/recherche_film_TMDB/<string:mot>')
+// def recherche_film_TMDB(mot):
+//     print("DANS LA FONCTION RECHERCHE_TMDB")
+//     api_key_TMDB = "8770fea03d8b0d550c4b50be1656d5cb"
+//     url = "https://api.themoviedb.org/3/search/movie"
+//     liste_films = []
+
+//     params = {
+//     'api_key': api_key_TMDB,
+//     'query': mot,
+//     'language': 'fr-FR',
+//     }
+//     response = requests.get(url, params=params)
+//     if response.status_code == 200:
+//         data = response.json()
+//         liste_films = data.get('results', [])
+//         for film in liste_films:
+//             print('DANS LA BOUCLE RECHERCHE TMDB')
+//             print(film['title'])
+
+//         liste_final = supprimer_doublon(liste_films)
+//         return jsonify(liste_final)
+    
+//     else:
+//         print("erreur")
+//         return jsonify({"message" : "Problème connexion"})
 
 }
 

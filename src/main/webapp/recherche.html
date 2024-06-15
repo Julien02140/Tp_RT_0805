@@ -1,0 +1,56 @@
+<body>
+
+    <h1>Bienvenue</h1>
+
+    <div id="films-list"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const genreId = urlParams.get('genre');
+            
+            fetch("/rest/trouver_film_genre?genre_id=" + genreId)
+                .then(response => response.json())
+                .then(films => {
+                    document.getElementById('poster_path').textContent = "https://image.tmdb.org/t/p/w342" + films[0].posterPath;
+                    const filmsList = document.getElementById('films-list');
+                    const ul = document.createElement('ul');
+                    ul.classList.add('film-list');
+
+                    films.forEach(film => {
+                        const li = document.createElement('li');
+                        li.classList.add('film-list-item');
+                        li.setAttribute('data-bs-toggle', 'tooltip');
+                        li.setAttribute('data-bs-placement', 'top');
+
+                        const h5 = document.createElement('h5');
+                        h5.textContent = film.title;
+
+                        const a = document.createElement('a');
+                        a.href = "/rest/description_film?film_id=" + film.id;
+
+                        const img = document.createElement('img');
+                        img.src = "https://image.tmdb.org/t/p/w342" + film.posterPath;
+                        img.alt = film.title + " Poster";
+
+                        a.appendChild(img);
+
+                        li.appendChild(h5);
+                        li.appendChild(a);
+                        
+                        ul.appendChild(li);
+                    });
+                    filmsList.appendChild(ul);
+                })
+                .catch(error => console.error('Erreur lors de la récupération des films:', error));
+
+            fetch('base_site.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('base-content').innerHTML = data;
+                });
+        });
+
+    </script>
+</body>
+</html>
