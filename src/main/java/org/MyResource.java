@@ -24,6 +24,7 @@ import jakarta.xml.bind.JAXBException;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.server.PathParam;
 import jakarta.ws.rs.core.Context;
 
 
@@ -96,27 +97,12 @@ public class MyResource {
             }
     }
 
-    @GET
-    @Path("username")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response verifSession(@Context HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            String username = (String) session.getAttribute("username");
-            Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
-            if (username != null) {
-                return Response.ok("{\"username\": \"" + username + "\", \"isAdmin\": " + isAdmin + "}").build();
-            }
-        }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
-    }
-
     public Liste_Films lire_film_xml(){
         try {
             JAXBContext context = JAXBContext.newInstance(Liste_Films.class);
 
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            File file = new File("films.xml");
+            File file = new File("../films.xml");
 
             Liste_Films films;
 
@@ -143,8 +129,63 @@ public class MyResource {
         Liste_Films liste_films = lire_film_xml();
         List<Film> films = liste_films.getListeFilms();
         List<Film> filmsPopulaires = films.subList(0, Math.min(20, films.size()));
+        System.out.println("film 1 :"  + filmsPopulaires.get(0).getTitle());
+        System.out.println("https://image.tmdb.org/t/p/w342"  + filmsPopulaires.get(0).getPosterPath());
         return Response.ok(filmsPopulaires).build();
     }
+
+    @GET
+    @Path("username")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response verifSession(@Context HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            String username = (String) session.getAttribute("username");
+            Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+            if (username != null) {
+                return Response.ok("{\"username\": \"" + username + "\", \"isAdmin\": " + isAdmin + "}").build();
+            }
+        }
+        return Response.status(Response.Status.UNAUTHORIZED).build();
+    }
+
+    @GET
+    @Path("description_film")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response descriptioinFilm(@QueryParam("film_id") String film_id, @Context HttpServletRequest request){
+        System.out.println("Fontion description film");
+        System.out.println("id du film recherche : " + film_id);
+        UriBuilder uriBuilder = UriBuilder.fromPath("../description_film.html").queryParam("id",film_id);
+        return Response.seeOther(uriBuilder.build()).build();
+    }
+
+    @GET
+    @Path("trouver_film")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response trouverFilm(@QueryParam("film_id") String film_id, @Context HttpServletRequest request){
+        System.out.println("Fonction trouver_film");
+        System.out.println("id du film recherche : " + film_id);
+        Liste_Films liste_films = lire_film_xml();
+        List<Film> films = liste_films.getListeFilms();
+        Film film_trouve = null;
+        for (Film film : films) {
+            System.out.println("id du film :" + film.getId());
+            if (film.getId().equals(film_id) == true) {
+                film_trouve = film;
+                break;
+            }
+        }
+        if (film_trouve != null) {
+            System.out.println("film trouve");
+            System.out.println("film trouve nom :" + film_trouve.getTitle());
+            return Response.ok(film_trouve).build();
+        }
+        else{
+            System.out.println("film non trouve");
+            return Response.status(Response.Status.NOT_FOUND).entity("Film not found").build();
+        }
+    }
+
 }
 
 

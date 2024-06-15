@@ -42,6 +42,7 @@ img {
 }
 
 .film-list-item {
+    list-style: none; /* Supprime les puces de la liste */
     width: 200px; /* Ajustez la largeur des éléments en fonction de vos besoins */
     margin: 10px;
     box-shadow: 0 4px 8px rgba(255, 0, 0, 0); /* Ajoutez une ombre douce */
@@ -50,6 +51,12 @@ img {
 }
 
 .film-list-item img {
+    max-width: 100%; /* Ajuste la largeur de l'image pour qu'elle ne dépasse pas la largeur du conteneur parent */
+    border-radius: 8px; /* Ajoute une bordure arrondie à l'image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère à l'image */
+}
+
+.img-film-list-item {
     max-width: 100%; /* Ajuste la largeur de l'image pour qu'elle ne dépasse pas la largeur du conteneur parent */
     border-radius: 8px; /* Ajoute une bordure arrondie à l'image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère à l'image */
