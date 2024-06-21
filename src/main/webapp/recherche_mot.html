@@ -1,7 +1,7 @@
 <body>
     <div id="base-content"></div>
 
-    <h1>Bienvenue, <span id="genre_id"></span>!</h1>
+    <h1>Bienvenue, <span id="mot"></span>!</h1>
 
     <!-- <h1>Bienvenue, <span id="poster_path"></span>!</h1> -->
 
@@ -14,11 +14,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const urlParams = new URLSearchParams(window.location.search);
-            const genreId = urlParams.get('genre');
+            const mot = urlParams.get('mot');
 
-            document.getElementById('genre_id').textContent = genreId;
+            document.getElementById('mot').textContent = mot;
             
-            fetch("/rest/trouver_film_genre?genre_id=" + genreId)
+            fetch("/rest/trouver_film_mot?mot=" + mot)
                 .then(response => response.json())
                 .then(films => {
                     // const jsonContainer = document.getElementById('json-container');

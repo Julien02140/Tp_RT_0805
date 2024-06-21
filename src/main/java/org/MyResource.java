@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import jakarta.ws.rs.Consumes;
@@ -225,16 +226,32 @@ public class MyResource {
     @GET
     @Path("rechercher_film")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response rechercherFilm(@QueryParam("mot") String mot, @Context HttpServletRequest request){
+    public Response rechercherFilm(@QueryParam("recherche") String mot, @Context HttpServletRequest request){
+        System.out.println("mot recherche : " + mot);
+        UriBuilder uriBuilder = UriBuilder.fromPath("../recherche_mot.html").queryParam("mot",mot);
+        return Response.seeOther(uriBuilder.build()).build();
+
+    }
+
+
+    @GET
+    @Path("trouver_film_mot")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response trouverFilmMot(@QueryParam("mot") String mot, @Context HttpServletRequest request){
         Liste_Films liste_films = lire_film_xml();
         List<Film> films = liste_films.getListeFilms();
         List<Film> film_correspondant = new ArrayList<>();
  
         for (Film film : films) {
-            if (film.getTitle().toLowerCase().startsWith(mot.toLowerCase())) {
+            String tilte64 = film.getTitle();
+            byte[] decodedBytes = Base64.getDecoder().decode(tilte64);
+            String title = new String(decodedBytes);
+
+            if (title.toLowerCase().startsWith(mot.toLowerCase())) {
                 film_correspondant.add(film);
             }
         }
+
 
         System.out.println("Liste de film correspondant trouve");
         return Response.ok(film_correspondant).build();
@@ -259,6 +276,10 @@ public class MyResource {
                     film_correspondant.add(film);
                 }
             }
+        }
+
+        for(Film film1 : film_correspondant){
+            System.out.println("titre film :" + film1.getTitle());
         }
         
         return Response.ok(film_correspondant).build();

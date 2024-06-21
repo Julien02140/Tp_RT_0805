@@ -71,7 +71,7 @@
                   </div>
             </ul> 
         </div>
-        <form class="d-flex" method="POST" action="{{url_for('recherche_film')}}">
+        <form class="d-flex" method="GET" action="/rest/rechercher_film">
             <input type="text" class="form-control me-2" id="recherche" name="recherche">
             <button type="submit"
             class="btn btn-primary">rechercher</button>
