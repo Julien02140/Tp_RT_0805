@@ -53,6 +53,8 @@
                         <li><a class="dropdown-item" href="/rest/recherche_genre?genre=10752">Guerre</a></li>
                         <li><a class="dropdown-item" href="/rest/recherche_genre?genre=37">Western</a></li>
                       </ul>
+                    <li class="nav-item" id="admin-link" style="display: none;">
+                      <a href="../page_admin.html" class="nav-link">Page Admin</a>
                     </li>
                   </ul>
                 </div>
@@ -77,5 +79,31 @@
             class="btn btn-primary">rechercher</button>
         </form>
       </nav>
+
+      <script>     
+        document.addEventListener('DOMContentLoaded', (event) => {
+            fetch('/rest/username')
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Non autorisé');
+                    }
+                })
+                .then(data => {
+                    document.getElementById('username').textContent = data.username;
+
+                    if (data.isAdmin == true) {
+                        document.getElementById('admin-link').style.display = 'block';
+                    } else {
+                        document.getElementById('admin-link').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    window.location.href = '../index.html';
+                });
+          });
+      </script>
 </body>
 </html>

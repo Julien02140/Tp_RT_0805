@@ -45,9 +45,9 @@ public class MyResource {
     public Response RegisterUser(@FormParam("lastname") String name,@FormParam("firstname") String  firstname,@FormParam("age") int age,@FormParam("pseudo") String pseudo, @FormParam("email") String email, @FormParam("password") String password){
         
         Utilisateur utilisateur = new Utilisateur(name,firstname,age,pseudo,email,password);
-        utilisateur.delete();
-        // System.out.println(utilisateur.getName());
-        // utilisateur.register();
+        //utilisateur.delete();
+        System.out.println(utilisateur.getName());
+        utilisateur.register();
         UriBuilder uriBuilder = UriBuilder.fromPath("../login.html");
         return Response.seeOther(uriBuilder.build()).build();
     }
@@ -81,6 +81,8 @@ public class MyResource {
                         HttpSession session = request.getSession(true);
                         session.setAttribute("username", pseudo);
                         session.setAttribute("isAdmin", user.isAdmin());
+
+                        System.out.println("utilisateur est admin : " + user.isAdmin());
 
                         UriBuilder uriBuilder = UriBuilder.fromPath("../home.html");
                         return Response.seeOther(uriBuilder.build()).build();
@@ -170,6 +172,8 @@ public class MyResource {
         if (session != null) {
             String username = (String) session.getAttribute("username");
             Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+
+            System.out.println("fontion username isAdmin valeur : " + isAdmin);
             if (username != null) {
                 return Response.ok("{\"username\": \"" + username + "\", \"isAdmin\": " + isAdmin + "}").build();
             }

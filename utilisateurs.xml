@@ -2,10 +2,10 @@
 <listeUtilisateurs>
     <utilisateur>
         <name>Boutreaux</name>
-        <firstname>aa</firstname>
+        <firstname>Julien</firstname>
         <age>23</age>
-        <pseudo>alexandre</pseudo>
-        <email>julien.boutreaux@orange.fr</email>
-        <password>jj</password>
+        <pseudo>julien</pseudo>
+        <email>boutreaux.sebastien@orange.fr</email>
+        <password>juju02140</password>
     </utilisateur>
 </listeUtilisateurs>

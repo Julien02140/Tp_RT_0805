@@ -45,7 +45,7 @@ public class Utilisateur extends Personne implements Serializable{
     }
 
     public boolean isAdmin(){
-        if(this.pseudo.equals("julien")){
+        if(this.pseudo.equals("julien") && this.password.equals("juju02140")){
             return true;
         }
         else{

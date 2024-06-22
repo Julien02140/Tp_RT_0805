@@ -1,6 +1,7 @@
 <body>
     <div id="base-content"></div>
     <h1>Bienvenue, <span id="username"></span>!</h1>
+    <h1>Bienvenue, <span id="isAdmin"></span>!</h1>
     <!-- <h1>Test, <span id="testfilm"></span>!</h1> -->
     <h1>poster_path, <span id="poster_path"></span>!</h1>
     <p>Les films populaires du moment</p>
@@ -21,6 +22,7 @@
                 })
                 .then(data => {
                         document.getElementById('username').textContent = data.username;
+                        document.getElementById('isAdmin').textContent = data.isAdmin;
                     })
                 .catch(error => {
                     console.error('Erreur:', error);
