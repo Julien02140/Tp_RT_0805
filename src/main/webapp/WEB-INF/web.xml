@@ -5,4 +5,66 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+
+	<servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>org.RegisterServlet</servlet-class>
+    </servlet>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+        <servlet-class>org.LoginServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FilmsPopulairesServlet</servlet-name>
+        <servlet-class>org.FilmsPopulairesServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DescriptionFilmServlet</servlet-name>
+        <servlet-class>org.DescriptionFilmServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RechercherFilmMotServlet</servlet-name>
+        <servlet-class>org.RechercherFilmMotServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RechercherFilmGenreServlet</servlet-name>
+        <servlet-class>org.RechercherFilmGenreServlet</servlet-class>
+	</servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/rest/register</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/rest/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FilmsPopulairesServlet</servlet-name>
+        <url-pattern>/rest/films_populaires</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DescriptionFilmServlet</servlet-name>
+        <url-pattern>/rest/description_film</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RechercherFilmMotServlet</servlet-name>
+        <url-pattern>/rest/rechercher_film_mot</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RechercherFilmGenreServlet</servlet-name>
+        <url-pattern>/rest/recherche_genre</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>

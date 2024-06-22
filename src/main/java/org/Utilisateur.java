@@ -17,15 +17,21 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Utilisateur extends Personne implements Serializable{
+    @XmlElement
     private String pseudo;
+    @XmlElement
     private String email;
+    @XmlElement
     private String password;
+    @XmlElement
+    private List<Film> videotheque;
 
-    public Utilisateur(String name, String firstname, int age,String pseudo ,String email, String password){
+    public Utilisateur(String name, String firstname, int age,String pseudo ,String email, String password, List<Film> videotheque){
         super(name,firstname,age);
         this.pseudo = pseudo;
         this.email = email;
         this.password = password;
+        this.videotheque = videotheque;
     }
 
     public Utilisateur(){
@@ -44,6 +50,10 @@ public class Utilisateur extends Personne implements Serializable{
         return password;
     }
 
+    public List<Film> getVideotheque(){
+        return videotheque;
+    }
+
     public boolean isAdmin(){
         if(this.pseudo.equals("julien") && this.password.equals("juju02140")){
             return true;
@@ -51,6 +61,11 @@ public class Utilisateur extends Personne implements Serializable{
         else{
             return false;
         }
+    }
+
+    public void addVideotehque(Film film){
+        this.videotheque.add(film);
+        return;
     }
 
     public void register(){

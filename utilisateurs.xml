@@ -8,4 +8,28 @@
         <email>boutreaux.sebastien@orange.fr</email>
         <password>juju02140</password>
     </utilisateur>
+    <utilisateur>
+        <name>Boutreaux</name>
+        <firstname>jjj</firstname>
+        <age>18</age>
+        <pseudo>Julien</pseudo>
+        <email>boutreaux.sebastien@orange.fr</email>
+        <password>jjj</password>
+    </utilisateur>
+    <utilisateur>
+        <name>Boutreaux</name>
+        <firstname>jjj</firstname>
+        <age>59</age>
+        <pseudo>Julien</pseudo>
+        <email>boutreaux.sebastien@orange.fr</email>
+        <password>jhjjjjj</password>
+    </utilisateur>
+    <utilisateur>
+        <name>Boutreaux</name>
+        <firstname>jjj</firstname>
+        <age>23</age>
+        <pseudo>alexandre</pseudo>
+        <email>boutreaux.sebastien@orange.fr</email>
+        <password>jj</password>
+    </utilisateur>
 </listeUtilisateurs>
