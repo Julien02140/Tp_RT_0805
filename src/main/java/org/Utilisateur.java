@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.xml.bind.JAXBContext;
@@ -13,6 +14,7 @@ import jakarta.xml.bind.Unmarshaller;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -23,7 +25,9 @@ public class Utilisateur extends Personne implements Serializable{
     private String email;
     @XmlElement
     private String password;
-    @XmlElement
+
+    @XmlElementWrapper(name = "videotheque")
+    @XmlElement(name = "film")
     private List<Film> videotheque;
 
     public Utilisateur(String name, String firstname, int age,String pseudo ,String email, String password, List<Film> videotheque){
@@ -36,6 +40,7 @@ public class Utilisateur extends Personne implements Serializable{
 
     public Utilisateur(){
         super();
+        this.videotheque = new ArrayList<Film>();
     }
 
     public String getPseudo(){
@@ -63,7 +68,7 @@ public class Utilisateur extends Personne implements Serializable{
         }
     }
 
-    public void addVideotehque(Film film){
+    public void addVideotheque(Film film){
         this.videotheque.add(film);
         return;
     }
@@ -81,6 +86,9 @@ public class Utilisateur extends Personne implements Serializable{
                     } else {
                         utilisateurs = new Liste_utilisateurs();
                     }
+
+                    //enlever l'utilisateur si il est déja présent
+                    utilisateurs.getListeUtilisateurs().removeIf(user -> user.pseudo.equals(this.pseudo));
 
                     utilisateurs.getListeUtilisateurs().add(this);
 

@@ -36,6 +36,11 @@
         <servlet-class>org.RechercherFilmGenreServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+        <servlet-name>AjoutVideothequeServlet</servlet-name>
+        <servlet-class>org.AjoutVideothequeServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/rest/register</url-pattern>
@@ -64,6 +69,11 @@
 	<servlet-mapping>
 		<servlet-name>RechercherFilmGenreServlet</servlet-name>
         <url-pattern>/rest/recherche_genre</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AjoutVideothequeServlet</servlet-name>
+        <url-pattern>/rest/ajout_videotheque</url-pattern>
 	</servlet-mapping>
 
 

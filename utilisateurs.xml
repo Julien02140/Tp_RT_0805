@@ -2,19 +2,12 @@
 <listeUtilisateurs>
     <utilisateur>
         <name>Boutreaux</name>
-        <firstname>Julien</firstname>
-        <age>23</age>
-        <pseudo>julien</pseudo>
-        <email>boutreaux.sebastien@orange.fr</email>
-        <password>juju02140</password>
-    </utilisateur>
-    <utilisateur>
-        <name>Boutreaux</name>
         <firstname>jjj</firstname>
         <age>18</age>
         <pseudo>Julien</pseudo>
         <email>boutreaux.sebastien@orange.fr</email>
         <password>jjj</password>
+        <videotheque/>
     </utilisateur>
     <utilisateur>
         <name>Boutreaux</name>
@@ -23,6 +16,7 @@
         <pseudo>Julien</pseudo>
         <email>boutreaux.sebastien@orange.fr</email>
         <password>jhjjjjj</password>
+        <videotheque/>
     </utilisateur>
     <utilisateur>
         <name>Boutreaux</name>
@@ -31,5 +25,33 @@
         <pseudo>alexandre</pseudo>
         <email>boutreaux.sebastien@orange.fr</email>
         <password>jj</password>
+        <videotheque/>
+    </utilisateur>
+    <utilisateur>
+        <name>Boutreaux</name>
+        <firstname>Julien</firstname>
+        <age>23</age>
+        <pseudo>julien</pseudo>
+        <email>boutreaux.sebastien@orange.fr</email>
+        <password>juju02140</password>
+        <videotheque>
+            <film>
+                <title>SW5zaWRlIE91dA==</title>
+                <release_date>2015-06-17</release_date>
+                <moyenne>7</moyenne>
+                <nb_vote>20714</nb_vote>
+                <id>150540</id>
+                <overview>UmlsZXkgZXN0IGTDqXJhY2luw6llIGR1IE1pZC1PdWVzdCBxdWFuZCBzb24gcMOocmUgZXN0IG11dMOpIMOgIFNhbiBGcmFuY2lzY28uIENvbW1lIHRvdXMsIFJpbGV5IGVzdCBndWlkw6llIHBhciBzZXMgw4ltb3Rpb25zIDogSm9pZSwgUGV1ciwgQ29sw6hyZSwgRMOpZ2/Du3QgZXQgVHJpc3Rlc3NlLiBMZXMgw4ltb3Rpb25zIHZpdmVudCBhdSBRdWFydGllciBDw6lyw6licmFsLCBvw7kgZWxsZXMgbGEgY29uc2VpbGxlbnQgYXUgcXVvdGlkaWVuLiBBbG9ycyBxdWUgUmlsZXkgZXQgc2VzIMOJbW90aW9ucyBzZSBiYWdhcnJlbnQsIGPigJllc3QgbGEgY3Jpc2UgYXUgUXVhcnRpZXIgQ8OpcsOpYnJhbC4gSm9pZSwgbCfDiW1vdGlvbiBwcmluY2lwYWxlIGRlIFJpbGV5LCBlc3NhaWUgZGUgcmVzdGVyIHBvc2l0aXZlIGFsb3JzIHF1ZSBsZXMgYXV0cmVzIMOJbW90aW9ucyBlc3NhaWVudCBkZSBzJ2FkYXB0ZXIgw6AgbGEgbm91dmVsbGUgdmllIGRlIFJpbGV5Lg==</overview>
+                <poster_path>/KUhrtJN02RNt3Sxc4IMTa1d9Lt.jpg</poster_path>
+                <backdrop_path>/j29ekbcLpBvxnGk6LjdTc2EI5SA.jpg</backdrop_path>
+                <genre_ids>
+                    <genre_id>16</genre_id>
+                    <genre_id>10751</genre_id>
+                    <genre_id>12</genre_id>
+                    <genre_id>18</genre_id>
+                    <genre_id>35</genre_id>
+                </genre_ids>
+            </film>
+        </videotheque>
     </utilisateur>
 </listeUtilisateurs>

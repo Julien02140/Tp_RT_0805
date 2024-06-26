@@ -16,7 +16,7 @@
             <img src="https://image.tmdb.org/t/p/w342/${ film.posterPath }" alt="${ film.title } Poster">
 
             <div class="film-info">
-                <a href="/ajout_film/${film.id}" class="btn btn-primary">Ajouter le film</a>
+                <a href="/rest/ajout_videotheque?film_id=${film.id}" class="btn btn-primary">Ajouter le film</a>
                 </br>
                 </br>
                 <p>Date de sortie : ${film.releaseDate}</p>

@@ -16,22 +16,42 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 
-@WebServlet("/description_film")
-public class DescriptionFilmServlet extends HttpServlet {
-
+@WebServlet("/ajout_videotheque")
+public class AjoutVideothequeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Fonction description film");
+        System.out.println("Fonction ajout videotheque");
         String filmId = request.getParameter("film_id");
         System.out.println("id du film recherche : " + filmId);
-        Film film = trouverFilm(filmId);
 
-        request.setAttribute("film", film);
+        String username = " ";
 
+        //récupérer la session de l'utilisateur
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            username = (String) session.getAttribute("username");
+            Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+        }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("../description_film.jsp");
-        dispatcher.forward(request, response);
-        
+        //Lire utilisateurs.xml et trouver l'utilisateur
+        Liste_utilisateurs users_objet = lire_user_xml();
+        List<Utilisateur> users = users_objet.getListeUtilisateurs();
+        for (Utilisateur user : users) {
+            System.out.println("dans la boucle : pseudo user :" + user.getPseudo());
+            System.out.println("valeur username :" + username);
+            if (user.getPseudo().equals(username)){
+                System.out.println("user pseudo :" + user.getPseudo() + "mdp : " + user.getPassword());
+                //trouver le film
+                Film film = trouverFilm(filmId);
+                user.addVideotheque(film);
+                user.register();
+            }
+        }
+
+        System.out.println("Film ajouté à la vidéothèque de l'utilisateur.");
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.getWriter().write("Film ajouté à la vidéothèque de l'utilisateur.");
+
     }
 
     private Liste_Films lire_film_xml() {
@@ -54,6 +74,29 @@ public class DescriptionFilmServlet extends HttpServlet {
             e.printStackTrace();
             System.out.println("Erreur lors de la lecture de films.xml");
             return new Liste_Films();
+        }
+    }
+
+    private Liste_utilisateurs lire_user_xml() {
+        try {
+            JAXBContext context = JAXBContext.newInstance(Liste_utilisateurs.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            File file = new File("utilisateurs.xml");
+
+            Liste_utilisateurs users;
+
+            if (file.exists()) {
+                users = (Liste_utilisateurs) unmarshaller.unmarshal(file);
+            } else {
+                System.out.println("Erreur : le fichier utilisateur.xml n'existe pas");
+                users = new Liste_utilisateurs();
+            }
+
+            return users;
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            System.out.println("Erreur lors de la lecture de films.xml");
+            return new Liste_utilisateurs();
         }
     }
 
@@ -80,5 +123,4 @@ public class DescriptionFilmServlet extends HttpServlet {
             return null;
         }
             }
-
 }
