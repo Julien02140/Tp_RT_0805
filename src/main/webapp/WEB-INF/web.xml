@@ -106,5 +106,11 @@
         <url-pattern>/rest/deconnexion</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>DeconnexionServlet</servlet-name>
+        <url-pattern>/rest/deconnexion</url-pattern>
+	</servlet-mapping>
+
+
 
 </web-app>

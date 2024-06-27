@@ -24,8 +24,25 @@ public class RegisterServlet extends HttpServlet {
         
         Utilisateur utilisateur = new Utilisateur(name, firstname, age, pseudo, email, password,videotheque);
         System.out.println("Nom utilisateur : " + utilisateur.getName());
-        utilisateur.register();
-        
-        response.sendRedirect("../login.html");
+
+        //vérifier que le pseudo est différent
+        Liste_utilisateurs users_objet = XmlFonctions.lire_user_xml();
+        List<Utilisateur> users = users_objet.getListeUtilisateurs();
+        Boolean verification = false;
+        for(Utilisateur user : users){
+            if(user.getPseudo().equals(utilisateur.getPseudo())){
+                verification = true;
+            }
+        }
+
+        if(verification == true){
+            System.out.println("Pseudo déja utilisé, annulation de l'inscription");
+            response.sendRedirect("../register.html");
+        }
+        else{
+            utilisateur.register();
+            response.sendRedirect("../login.html");
+        }
+
     }
 }

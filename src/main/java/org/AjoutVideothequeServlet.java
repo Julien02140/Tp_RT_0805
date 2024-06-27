@@ -42,11 +42,27 @@ public class AjoutVideothequeServlet extends HttpServlet {
             System.out.println("valeur username :" + username);
             if (user.getPseudo().equals(username)){
                 System.out.println("user pseudo :" + user.getPseudo() + "mdp : " + user.getPassword());
+                //Vérifier si le film n'est pas déja dans la videotheque
+                Boolean duplication = false;
+                for (Film film : user.getVideotheque()){
+                    if(film.getId().equals(filmId)){
+                        duplication = true;
+                        break;
+                    }
+                }
+
+                if (duplication == true){
+                    System.out.println("déja dans la vidéotheque");
+                }
+                else{
+                    
                 //trouver le film
                 Film film = XmlFonctions.trouverFilm(filmId);
                 user.addVideotheque(film);
                 user.register();
                 break;
+
+                }
             }
         }
 
