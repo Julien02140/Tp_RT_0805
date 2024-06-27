@@ -41,6 +41,21 @@
         <servlet-class>org.AjoutVideothequeServlet</servlet-class>
     </servlet>
 
+	<servlet>
+        <servlet-name>VideothequeServlet</servlet-name>
+        <servlet-class>org.VideothequeServlet</servlet-class>
+    </servlet>
+
+	<servlet>
+        <servlet-name>SupprimerFilmVideothequeServlet</servlet-name>
+        <servlet-class>org.SupprimerFilmVideothequeServlet</servlet-class>
+    </servlet>
+
+	<servlet>
+        <servlet-name>DeconnexionServlet</servlet-name>
+        <servlet-class>org.DeconnexionServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/rest/register</url-pattern>
@@ -74,6 +89,21 @@
 	<servlet-mapping>
 		<servlet-name>AjoutVideothequeServlet</servlet-name>
         <url-pattern>/rest/ajout_videotheque</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>VideothequeServlet</servlet-name>
+        <url-pattern>/rest/videotheque</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SupprimerFilmVideothequeServlet</servlet-name>
+        <url-pattern>/rest/supprimer_film</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DeconnexionServlet</servlet-name>
+        <url-pattern>/rest/deconnexion</url-pattern>
 	</servlet-mapping>
 
 

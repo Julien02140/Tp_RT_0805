@@ -4,7 +4,7 @@
         <name>Boutreaux</name>
         <firstname>jjj</firstname>
         <age>18</age>
-        <pseudo>Julien</pseudo>
+        <pseudo>alex</pseudo>
         <email>boutreaux.sebastien@orange.fr</email>
         <password>jjj</password>
         <videotheque/>
@@ -13,7 +13,7 @@
         <name>Boutreaux</name>
         <firstname>jjj</firstname>
         <age>59</age>
-        <pseudo>Julien</pseudo>
+        <pseudo>adrien</pseudo>
         <email>boutreaux.sebastien@orange.fr</email>
         <password>jhjjjjj</password>
         <videotheque/>
@@ -22,7 +22,7 @@
         <name>Boutreaux</name>
         <firstname>jjj</firstname>
         <age>23</age>
-        <pseudo>alexandre</pseudo>
+        <pseudo>hugo</pseudo>
         <email>boutreaux.sebastien@orange.fr</email>
         <password>jj</password>
         <videotheque/>
@@ -36,19 +36,34 @@
         <password>juju02140</password>
         <videotheque>
             <film>
-                <title>SW5zaWRlIE91dA==</title>
-                <release_date>2015-06-17</release_date>
+                <title>SW5zaWRlIE91dCAy</title>
+                <release_date>2024-06-11</release_date>
                 <moyenne>7</moyenne>
-                <nb_vote>20714</nb_vote>
-                <id>150540</id>
-                <overview>UmlsZXkgZXN0IGTDqXJhY2luw6llIGR1IE1pZC1PdWVzdCBxdWFuZCBzb24gcMOocmUgZXN0IG11dMOpIMOgIFNhbiBGcmFuY2lzY28uIENvbW1lIHRvdXMsIFJpbGV5IGVzdCBndWlkw6llIHBhciBzZXMgw4ltb3Rpb25zIDogSm9pZSwgUGV1ciwgQ29sw6hyZSwgRMOpZ2/Du3QgZXQgVHJpc3Rlc3NlLiBMZXMgw4ltb3Rpb25zIHZpdmVudCBhdSBRdWFydGllciBDw6lyw6licmFsLCBvw7kgZWxsZXMgbGEgY29uc2VpbGxlbnQgYXUgcXVvdGlkaWVuLiBBbG9ycyBxdWUgUmlsZXkgZXQgc2VzIMOJbW90aW9ucyBzZSBiYWdhcnJlbnQsIGPigJllc3QgbGEgY3Jpc2UgYXUgUXVhcnRpZXIgQ8OpcsOpYnJhbC4gSm9pZSwgbCfDiW1vdGlvbiBwcmluY2lwYWxlIGRlIFJpbGV5LCBlc3NhaWUgZGUgcmVzdGVyIHBvc2l0aXZlIGFsb3JzIHF1ZSBsZXMgYXV0cmVzIMOJbW90aW9ucyBlc3NhaWVudCBkZSBzJ2FkYXB0ZXIgw6AgbGEgbm91dmVsbGUgdmllIGRlIFJpbGV5Lg==</overview>
-                <poster_path>/KUhrtJN02RNt3Sxc4IMTa1d9Lt.jpg</poster_path>
-                <backdrop_path>/j29ekbcLpBvxnGk6LjdTc2EI5SA.jpg</backdrop_path>
+                <nb_vote>882</nb_vote>
+                <id>1022789</id>
+                <overview>RnJhaWNoZW1lbnQgZGlwbMO0bcOpZSwgUmlsZXkgZXN0IGTDqXNvcm1haXMgdW5lIGFkb2xlc2NlbnRlLCBjZSBxdWkgbidlc3QgcGFzIHNhbnMgZMOpY2xlbmNoZXIgdW4gY2hhbWJvdWxlbWVudCBtYWpldXIgYXUgc2VpbiBkdSBxdWFydGllciBnw6luw6lyYWwgcXVpIGRvaXQgZmFpcmUgZmFjZSDDoCBxdWVscXVlIGNob3NlIGQnaW5hdHRlbmR1IDogbCdhcnJpdsOpZSBkZSBub3V2ZWxsZXMgw6ltb3Rpb25zICEgSm9pZSwgVHJpc3Rlc3NlLCBDb2zDqHJlLCBQZXVyIGV0IETDqWdvw7t0IC0gcXVpIG9udCBsb25ndGVtcHMgZm9uY3Rpb25uw6kgYXZlYyBzdWNjw6hzIC0gbmUgc2F2ZW50IHBhcyB0cm9wIGNvbW1lbnQgcsOpYWdpciBsb3JzcXUnQW54acOpdMOpIGTDqWJhcnF1ZS4gRXQgaWwgc2VtYmxlIHF1J2VsbGUgbmUgc29pdCBwYXMgbGEgc2V1bGXigKY=</overview>
+                <poster_path>/eHUWo4AiomQwG8EpWhvNNA1RMYz.jpg</poster_path>
+                <backdrop_path>/xg27NrXi7VXCGUr7MG75UqLl6Vg.jpg</backdrop_path>
                 <genre_ids>
                     <genre_id>16</genre_id>
                     <genre_id>10751</genre_id>
                     <genre_id>12</genre_id>
-                    <genre_id>18</genre_id>
+                    <genre_id>35</genre_id>
+                </genre_ids>
+            </film>
+            <film>
+                <title>QmFkIEJveXM6IFJpZGUgb3IgRGll</title>
+                <release_date>2024-06-05</release_date>
+                <moyenne>7</moyenne>
+                <nb_vote>435</nb_vote>
+                <id>573435</id>
+                <overview>Q2V0dGUgZm9pcy1jaSwgbGVzIG1laWxsZXVycyBmbGljcyBkZSBNaWFtaSBkZXZpZW5uZW50IGxlcyBob21tZXMgbGVzIHBsdXMgcmVjaGVyY2jDqXMgZCdBbcOpcmlxdWUu</overview>
+                <poster_path>/zCZJXSDPZKGml4I5zvxNpdx8jra.jpg</poster_path>
+                <backdrop_path>/gRApXuxWmO2forYTuTmcz5RaNUV.jpg</backdrop_path>
+                <genre_ids>
+                    <genre_id>28</genre_id>
+                    <genre_id>80</genre_id>
+                    <genre_id>53</genre_id>
                     <genre_id>35</genre_id>
                 </genre_ids>
             </film>

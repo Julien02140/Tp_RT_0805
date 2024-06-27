@@ -17,6 +17,8 @@ import java.util.List;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
+import org.XmlFonctions;
+import org.XmlFonctions;
 
 @WebServlet("/rechercher_film_genre")
 public class RechercherFilmGenreServlet extends HttpServlet {
@@ -27,7 +29,14 @@ public class RechercherFilmGenreServlet extends HttpServlet {
         String genre = request.getParameter("genre");
         System.out.println("Id du genre recherche : " + genre);
 
-        List<Film> films = trouverFilmGenre(genre);
+        List<Film> films = XmlFonctions.trouverFilmGenre(genre);
+
+        for (Film film: films){
+            String title64 = film.getTitle();
+            String title_decode = XmlFonctions.decoder_base_64(title64);
+            System.out.println("titre decode" + title_decode);
+            film.setTitre(title_decode);
+        }
 
         request.setAttribute("films", films);
 
@@ -36,54 +45,5 @@ public class RechercherFilmGenreServlet extends HttpServlet {
 
         
     }
-
-    private Liste_Films lire_film_xml() {
-        try {
-            JAXBContext context = JAXBContext.newInstance(Liste_Films.class);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-            File file = new File("../films.xml");
-
-            Liste_Films films;
-
-            if (file.exists()) {
-                films = (Liste_Films) unmarshaller.unmarshal(file);
-            } else {
-                System.out.println("Erreur : le fichier films.xml n'existe pas");
-                films = new Liste_Films();
-            }
-
-            return films;
-        } catch (JAXBException e) {
-            e.printStackTrace();
-            System.out.println("Erreur lors de la lecture de films.xml");
-            return new Liste_Films();
-        }
-    }
-
-    private List<Film> trouverFilmGenre(String genre){
-        int genre_id = Integer.parseInt(genre);
-    
-        System.out.println("Dans la fonction trouver_film_genre");
-                Liste_Films liste_films = lire_film_xml();
-                List<Film> films = liste_films.getListeFilms();
-                List<Film> film_correspondant = new ArrayList<>();
-                // Liste_genres liste_genres = lire_genre_xml();
-                // List<Genre> genres = liste_genres.getListeGenres();
-        
-                for (Film film : films) {
-                    List<Integer> genre_film_id = film.getGenreId();
-                    for(int i=0;i<genre_film_id.size();i++){
-                        if (genre_film_id.get(i) == genre_id){
-                            film_correspondant.add(film);
-                        }
-                    }
-                }
-        
-                for(Film film1 : film_correspondant){
-                    System.out.println("titre film :" + film1.getTitle());
-                }
-                
-                return film_correspondant;
-            }
 
 }

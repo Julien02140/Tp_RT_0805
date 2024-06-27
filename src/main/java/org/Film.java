@@ -62,6 +62,14 @@ public class Film {
         return title;
     }
 
+    public void setTitre(String titre_decode){
+        this.title = titre_decode;
+    }
+
+    public void setSynopsis(String synopsis_decode){
+        this.overview = synopsis_decode;
+    }
+
     public String getReleaseDate(){
         return release_date;
     }

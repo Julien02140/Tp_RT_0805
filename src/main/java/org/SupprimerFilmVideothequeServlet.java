@@ -11,19 +11,21 @@ import jakarta.ws.rs.core.Response;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import org.XmlFonctions;
 
-@WebServlet("/ajout_videotheque")
-public class AjoutVideothequeServlet extends HttpServlet {
+import jakarta.servlet.http.HttpServlet;
+
+@WebServlet("/supprimer_film")
+public class SupprimerFilmVideothequeServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Fonction ajout videotheque");
+        System.out.println("fonction supprimer film videotheque");
         String filmId = request.getParameter("film_id");
-        System.out.println("id du film recherche : " + filmId);
 
         String username = " ";
 
@@ -34,24 +36,29 @@ public class AjoutVideothequeServlet extends HttpServlet {
             Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
         }
 
-        //Lire utilisateurs.xml et trouver l'utilisateur
         Liste_utilisateurs users_objet = XmlFonctions.lire_user_xml();
         List<Utilisateur> users = users_objet.getListeUtilisateurs();
+        List<Film> videotheque = new ArrayList<Film>();
+
+
         for (Utilisateur user : users) {
             System.out.println("dans la boucle : pseudo user :" + user.getPseudo());
             System.out.println("valeur username :" + username);
             if (user.getPseudo().equals(username)){
                 System.out.println("user pseudo :" + user.getPseudo() + "mdp : " + user.getPassword());
-                //trouver le film
-                Film film = XmlFonctions.trouverFilm(filmId);
-                user.addVideotheque(film);
-                user.register();
+                System.out.println("Films " + user.getVideotheque());
+                for (Film film : user.getVideotheque()){
+                    System.out.println("Film : " + film.getTitle());
+                }
+
+                user.removeVideotheque(filmId);
                 break;
             }
         }
 
-        response.sendRedirect(request.getContextPath() + "/rest/description_film?film_id=" + filmId);
-
+        // Rediriger vers VideothequeServlet
+        response.sendRedirect(request.getContextPath() + "/rest/videotheque");
+        
     }
-
+    
 }

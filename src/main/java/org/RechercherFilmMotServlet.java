@@ -17,6 +17,7 @@ import java.util.List;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
+import org.XmlFonctions;
 
 @WebServlet("/rechercher_film_mot")
 public class RechercherFilmMotServlet extends HttpServlet {
@@ -27,7 +28,16 @@ public class RechercherFilmMotServlet extends HttpServlet {
         String mot = request.getParameter("mot");
         System.out.println("mot recherche : " + mot);
 
-        List<Film> films = trouverFilmMot(mot);
+        List<Film> films = XmlFonctions.trouverFilmMot(mot);
+
+        
+        for (Film film: films){
+            String title64 = film.getTitle();
+            String title_decode = XmlFonctions.decoder_base_64(title64);
+            System.out.println("titre decode" + title_decode);
+            film.setTitre(title_decode);
+        }
+
 
         request.setAttribute("films", films);
 
@@ -37,47 +47,5 @@ public class RechercherFilmMotServlet extends HttpServlet {
         
     }
 
-    private Liste_Films lire_film_xml() {
-        try {
-            JAXBContext context = JAXBContext.newInstance(Liste_Films.class);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-            File file = new File("../films.xml");
-
-            Liste_Films films;
-
-            if (file.exists()) {
-                films = (Liste_Films) unmarshaller.unmarshal(file);
-            } else {
-                System.out.println("Erreur : le fichier films.xml n'existe pas");
-                films = new Liste_Films();
-            }
-
-            return films;
-        } catch (JAXBException e) {
-            e.printStackTrace();
-            System.out.println("Erreur lors de la lecture de films.xml");
-            return new Liste_Films();
-        }
-    }
-
-    private List<Film> trouverFilmMot(String mot){
-        Liste_Films liste_films = lire_film_xml();
-                List<Film> films = liste_films.getListeFilms();
-                List<Film> film_correspondant = new ArrayList<>();
-         
-                for (Film film : films) {
-                    String tilte64 = film.getTitle();
-                    byte[] decodedBytes = Base64.getDecoder().decode(tilte64);
-                    String title = new String(decodedBytes);
-        
-                    if (title.toLowerCase().startsWith(mot.toLowerCase())) {
-                        film_correspondant.add(film);
-                    }
-                }
-        
-        
-                System.out.println("Liste de film correspondant trouve");
-                return film_correspondant;
-    }
-
+   
 }

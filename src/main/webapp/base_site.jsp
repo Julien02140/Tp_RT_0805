@@ -1,5 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -23,10 +24,10 @@
             id="navbar-nav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="/home" class="nav-link">Home</a>
+                    <a href="/rest/films_populaires" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="/videotheque/{{current_user.id}}" class="nav-link">Ma videotheque</a>
+                    <a href="/videotheque" class="nav-link">Ma videotheque</a>
                 </li>
                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                   <ul class="navbar-nav">
@@ -67,8 +68,7 @@
                         Mon compte
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                          <li><a class="dropdown-item" href="#">Paramètres</a></li>
-                          <li><a class="dropdown-item" href="{{ url_for('supprime_session') }}">Déconnexion</a></li>
+                          <li><a class="dropdown-item" href="/rest/deconnexion">Déconnexion</a></li>
                         </ul>
                       </li>
                     </ul>

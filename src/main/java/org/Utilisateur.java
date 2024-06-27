@@ -73,6 +73,11 @@ public class Utilisateur extends Personne implements Serializable{
         return;
     }
 
+    public void removeVideotheque(String id){
+        this.videotheque.removeIf(f -> f.getId().equals(id));
+        this.register();
+    }
+
     public void register(){
         try {
                     JAXBContext context = JAXBContext.newInstance(Liste_utilisateurs.class);
