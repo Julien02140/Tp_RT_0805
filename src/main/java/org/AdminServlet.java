@@ -27,7 +27,7 @@ public class AdminServlet extends HttpServlet {
 
         if (isAdmin == false){
             System.out.println("pas admin");
-            response.sendRedirect("index.html");
+            response.sendRedirect("../index.html");
         }
         else{
             //Lire utilisateurs.xml

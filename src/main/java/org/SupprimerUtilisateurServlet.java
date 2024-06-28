@@ -22,7 +22,7 @@ public class SupprimerUtilisateurServlet extends HttpServlet  {
 
         if (isAdmin == false){
             System.out.println("pas admin");
-            response.sendRedirect("index.html");
+            response.sendRedirect("../index.html");
         }
         else{
             String user_pseudo = request.getParameter("user_pseudo");
@@ -36,7 +36,7 @@ public class SupprimerUtilisateurServlet extends HttpServlet  {
                 }
             }
 
-            response.sendRedirect("page_admin.jsp");
+            response.sendRedirect("../page_admin.jsp");
 
         }
     }

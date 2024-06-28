@@ -2,24 +2,6 @@
 <listeUtilisateurs>
     <utilisateur>
         <name>Boutreaux</name>
-        <firstname>jjj</firstname>
-        <age>59</age>
-        <pseudo>adrien</pseudo>
-        <email>boutreaux.sebastien@orange.fr</email>
-        <password>jhjjjjj</password>
-        <videotheque/>
-    </utilisateur>
-    <utilisateur>
-        <name>kkkkkk</name>
-        <firstname>patrick</firstname>
-        <age>55</age>
-        <pseudo>pat</pseudo>
-        <email>boutreaux.sebastien@orange.fr</email>
-        <password>pat02140</password>
-        <videotheque/>
-    </utilisateur>
-    <utilisateur>
-        <name>Boutreaux</name>
         <firstname>Julien</firstname>
         <age>23</age>
         <pseudo>julien</pseudo>
@@ -42,34 +24,15 @@
                     <genre_id>28</genre_id>
                 </genre_ids>
             </film>
-            <film>
-                <title>VGhlIEZhbGwgR3V5</title>
-                <release_date>2024-04-24</release_date>
-                <moyenne>7</moyenne>
-                <nb_vote>1387</nb_vote>
-                <id>746036</id>
-                <overview>QXByw6hzIGF2b2lyIHF1aXR0w6kgbGUgbcOpdGllciB1biBhbiBwbHVzIHTDtHQsIENvbHQgU2VhdmVycywgY2FzY2FkZXVyLCByZXByZW5kIGR1IHNlcnZpY2UgbG9yc3F1ZSBsYSB2ZWRldHRlIGQndW4gZ3JhbmQgZmlsbSBkZSBzdHVkaW8gZGlzcGFyYcOudCBzb3VkYWluZW1lbnQuIEFsb3JzIHF1ZSBsZSBteXN0w6hyZSBhdXRvdXIgZGUgbCdhY3RldXIgZGlzcGFydSBzJ8OpcGFpc3NpdCwgQ29sdCBzZSByZXRyb3V2ZSBiaWVudMO0dCBwcmlzIGF1IHBpw6hnZSBkJ3VuIHNpbmlzdHJlIGNvbXBsb3QgcXVpIGxlIHBvdXNzZSBhdSBib3JkIGQndW5lIGNodXRlIHBsdXMgZGFuZ2VyZXVzZSBxdWUgbidpbXBvcnRlIHF1ZWxsZSBjYXNjYWRlLg==</overview>
-                <poster_path>/4ImqV3s7SkdcgnuoZ6yKBfDV7wW.jpg</poster_path>
-                <backdrop_path>/H5HjE7Xb9N09rbWn1zBfxgI8uz.jpg</backdrop_path>
-                <genre_ids>
-                    <genre_id>28</genre_id>
-                    <genre_id>35</genre_id>
-                </genre_ids>
-            </film>
-            <film>
-                <title>RHVuZTogUGFydCBUd28=</title>
-                <release_date>2024-02-27</release_date>
-                <moyenne>8</moyenne>
-                <nb_vote>4664</nb_vote>
-                <id>693134</id>
-                <overview>TGUgdm95YWdlIG15dGhpcXVlIGRlIFBhdWwgQXRyZWlkZXMgcXVpIHMnYWxsaWUgw6AgQ2hhbmkgZXQgYXV4IEZyZW1lbiBkYW5zIHNhIHF1w6p0ZSBkZSB2ZW5nZWFuY2UgZW52ZXJzIGxlcyBjb25zcGlyYXRldXJzIHF1aSBvbnQgYW7DqWFudGkgc2EgZmFtaWxsZS4gRGV2YW50IGNob2lzaXIgZW50cmUgbCdhbW91ciBkZSBzYSB2aWUgZXQgbGUgZGVzdGluIGRlIGwndW5pdmVycywgaWwgZmVyYSB0b3V0IHBvdXIgw6l2aXRlciB1biB0ZXJyaWJsZSBmdXR1ciBxdWUgbHVpIHNldWwgcGV1dCBwcsOpZGlyZS4=</overview>
-                <poster_path>/iRNbRAIGQQr5diGnjpwJFm0dgt4.jpg</poster_path>
-                <backdrop_path>/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg</backdrop_path>
-                <genre_ids>
-                    <genre_id>878</genre_id>
-                    <genre_id>12</genre_id>
-                </genre_ids>
-            </film>
         </videotheque>
+    </utilisateur>
+    <utilisateur>
+        <name>fefefe</name>
+        <firstname>fefzef</firstname>
+        <age>54</age>
+        <pseudo>alexandre</pseudo>
+        <email>boutreaux.julien@orange.fr</email>
+        <password>ff</password>
+        <videotheque/>
     </utilisateur>
 </listeUtilisateurs>
