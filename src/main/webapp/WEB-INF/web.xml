@@ -56,6 +56,26 @@
         <servlet-class>org.DeconnexionServlet</servlet-class>
     </servlet>
 
+	<servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>org.AdminServlet</servlet-class>
+    </servlet>
+
+	<servlet>
+        <servlet-name>SupprimerUtilisateurServlet</servlet-name>
+        <servlet-class>org.SupprimerUtilisateurServlet</servlet-class>
+    </servlet>
+
+	<servlet-mapping>
+        <servlet-name>SupprimerUtilisateurServlet</servlet-name>
+        <url-pattern>/rest/supprimer_utilisateur</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/rest/admin</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/rest/register</url-pattern>

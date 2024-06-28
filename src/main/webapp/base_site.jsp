@@ -27,7 +27,7 @@
                     <a href="/rest/films_populaires" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="/videotheque" class="nav-link">Ma videotheque</a>
+                    <a href="/rest/videotheque" class="nav-link">Ma videotheque</a>
                 </li>
                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                   <ul class="navbar-nav">
@@ -76,7 +76,7 @@
                 <c:if test="${isAdmin == true}">
                   <!-- Display the additional button for the admin -->
                   <li class="nav-item active">
-                    <a href="/page_admin" class="nav-link">Admin</a>
+                    <a href="/rest/admin" class="nav-link">Admin</a>
                   </li>
                 </c:if>
             </ul> 

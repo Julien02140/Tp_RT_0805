@@ -2,24 +2,14 @@ package org;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import jakarta.ws.rs.core.Response;
-
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Unmarshaller;
-import org.XmlFonctions;
-import jakarta.servlet.http.HttpServlet;
 
-@WebServlet("/page_admin")
 public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,7 +46,7 @@ public class AdminServlet extends HttpServlet {
             request.setAttribute("users", user_finaux);
 
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("page_admin.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("../page_admin.jsp");
             dispatcher.forward(request, response);
 
 

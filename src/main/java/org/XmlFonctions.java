@@ -64,9 +64,7 @@ public class XmlFonctions {
                 Liste_Films liste_films = lire_film_xml();
                 List<Film> films = liste_films.getListeFilms();
                 List<Film> film_correspondant = new ArrayList<>();
-                // Liste_genres liste_genres = lire_genre_xml();
-                // List<Genre> genres = liste_genres.getListeGenres();
-        
+
                 for (Film film : films) {
                     List<Integer> genre_film_id = film.getGenreId();
                     for(int i=0;i<genre_film_id.size();i++){

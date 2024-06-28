@@ -10,12 +10,66 @@
         <videotheque/>
     </utilisateur>
     <utilisateur>
+        <name>kkkkkk</name>
+        <firstname>patrick</firstname>
+        <age>55</age>
+        <pseudo>pat</pseudo>
+        <email>boutreaux.sebastien@orange.fr</email>
+        <password>pat02140</password>
+        <videotheque/>
+    </utilisateur>
+    <utilisateur>
         <name>Boutreaux</name>
         <firstname>Julien</firstname>
         <age>23</age>
         <pseudo>julien</pseudo>
         <email>boutreaux.sebastien@orange.fr</email>
         <password>juju02140</password>
-        <videotheque/>
+        <videotheque>
+            <film>
+                <title>VWx0cmFtYW46IFJpc2luZw==</title>
+                <release_date>2024-06-14</release_date>
+                <moyenne>8</moyenne>
+                <nb_vote>118</nb_vote>
+                <id>829402</id>
+                <overview>VGFuZGlzIHF1ZSBUb2t5byBlc3QgYXNzacOpZ8OpZSBwYXIgZGVzIG1vbnN0cmVzLCBsYSBzdGFyIGR1IGJhc2ViYWxsIEtlbiBTYXRvIHJlbnRyZSBjaGV6IGVsbGUgw6AgY29udHJlY8WTdXIgcG91ciBlbmRvc3NlciBsZSBjb3N0dW1lIGQnVWx0cmFtYW4uIE1haXMgbGUgc3VwZXJow6lyb3MgdGl0YW5lc3F1ZSByZW5jb250cmUgc29uIMOpZ2FsIGxvcnNxdSdpbCBlc3QgY29udHJhaW50IGQnYWRvcHRlciB1biBiw6liw6kga2FpanUgZGUgZGl4IG3DqHRyZXMgZGUgaGF1dCBxdWkgY3JhY2hlIGR1IGZldS4gU2F0byB2YSBhbG9ycyBkZXZvaXIgbWV0dHJlIHNvbiBvcmd1ZWlsIGRlIGPDtHTDqSBwb3VyIGNvbmNpbGllciBzb24gdHJhdmFpbCBldCBzb24gcsO0bGUgZGUgcGFyZW50LCB0b3V0IGVuIHByb3TDqWdlYW50IGxlIGLDqWLDqSBjb250cmUgZGVzIGZvcmNlcyBkw6l0ZXJtaW7DqWVzIMOgIGwnZXhwbG9pdGVyIHBvdXIgbGV1cnMgcHJvcHJlcyBzb21icmVzIGludMOpcsOqdHMu</overview>
+                <poster_path>/hdXhPsr8hnbWsHa6XvQj6e4usz4.jpg</poster_path>
+                <backdrop_path>/SI22DaQXIfDvLrNBHGpSVShrsC.jpg</backdrop_path>
+                <genre_ids>
+                    <genre_id>16</genre_id>
+                    <genre_id>878</genre_id>
+                    <genre_id>10751</genre_id>
+                    <genre_id>28</genre_id>
+                </genre_ids>
+            </film>
+            <film>
+                <title>VGhlIEZhbGwgR3V5</title>
+                <release_date>2024-04-24</release_date>
+                <moyenne>7</moyenne>
+                <nb_vote>1387</nb_vote>
+                <id>746036</id>
+                <overview>QXByw6hzIGF2b2lyIHF1aXR0w6kgbGUgbcOpdGllciB1biBhbiBwbHVzIHTDtHQsIENvbHQgU2VhdmVycywgY2FzY2FkZXVyLCByZXByZW5kIGR1IHNlcnZpY2UgbG9yc3F1ZSBsYSB2ZWRldHRlIGQndW4gZ3JhbmQgZmlsbSBkZSBzdHVkaW8gZGlzcGFyYcOudCBzb3VkYWluZW1lbnQuIEFsb3JzIHF1ZSBsZSBteXN0w6hyZSBhdXRvdXIgZGUgbCdhY3RldXIgZGlzcGFydSBzJ8OpcGFpc3NpdCwgQ29sdCBzZSByZXRyb3V2ZSBiaWVudMO0dCBwcmlzIGF1IHBpw6hnZSBkJ3VuIHNpbmlzdHJlIGNvbXBsb3QgcXVpIGxlIHBvdXNzZSBhdSBib3JkIGQndW5lIGNodXRlIHBsdXMgZGFuZ2VyZXVzZSBxdWUgbidpbXBvcnRlIHF1ZWxsZSBjYXNjYWRlLg==</overview>
+                <poster_path>/4ImqV3s7SkdcgnuoZ6yKBfDV7wW.jpg</poster_path>
+                <backdrop_path>/H5HjE7Xb9N09rbWn1zBfxgI8uz.jpg</backdrop_path>
+                <genre_ids>
+                    <genre_id>28</genre_id>
+                    <genre_id>35</genre_id>
+                </genre_ids>
+            </film>
+            <film>
+                <title>RHVuZTogUGFydCBUd28=</title>
+                <release_date>2024-02-27</release_date>
+                <moyenne>8</moyenne>
+                <nb_vote>4664</nb_vote>
+                <id>693134</id>
+                <overview>TGUgdm95YWdlIG15dGhpcXVlIGRlIFBhdWwgQXRyZWlkZXMgcXVpIHMnYWxsaWUgw6AgQ2hhbmkgZXQgYXV4IEZyZW1lbiBkYW5zIHNhIHF1w6p0ZSBkZSB2ZW5nZWFuY2UgZW52ZXJzIGxlcyBjb25zcGlyYXRldXJzIHF1aSBvbnQgYW7DqWFudGkgc2EgZmFtaWxsZS4gRGV2YW50IGNob2lzaXIgZW50cmUgbCdhbW91ciBkZSBzYSB2aWUgZXQgbGUgZGVzdGluIGRlIGwndW5pdmVycywgaWwgZmVyYSB0b3V0IHBvdXIgw6l2aXRlciB1biB0ZXJyaWJsZSBmdXR1ciBxdWUgbHVpIHNldWwgcGV1dCBwcsOpZGlyZS4=</overview>
+                <poster_path>/iRNbRAIGQQr5diGnjpwJFm0dgt4.jpg</poster_path>
+                <backdrop_path>/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg</backdrop_path>
+                <genre_ids>
+                    <genre_id>878</genre_id>
+                    <genre_id>12</genre_id>
+                </genre_ids>
+            </film>
+        </videotheque>
     </utilisateur>
 </listeUtilisateurs>

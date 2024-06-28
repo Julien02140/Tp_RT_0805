@@ -12,22 +12,14 @@ import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
-
-import java.text.Normalizer;
+import java.net.URI;
+import java.nio.file.Paths;
 import java.util.Base64;
 
 
@@ -44,10 +36,7 @@ public class api_TMDB {
 
             Unmarshaller unmarshaller = context.createUnmarshaller();
             File file = new File("films.xml");
-            // OutputStream outputStream = new FileOutputStream("films.xml");
-            // Writer writer = new OutputStreamWriter(outputStream, "UTF-8");
-            // BufferedWriter bufferedWriter = new BufferedWriter(writer);
-
+           
             Liste_Films films;
 
             if (file.exists()) {
@@ -110,8 +99,7 @@ public class api_TMDB {
         try{
             for(int i=1;i<5;i++){
                 complete_url = base_url + api_key_TMDB + "&language=" + language + "&vote_average.gte=" + minVoteAverage + "&vote_count.gte=" + minVoteCount + "&page=" + i;
-                
-                URL url = new URL(complete_url);
+                URL url = URI.create(complete_url).toURL();
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
 
@@ -126,7 +114,6 @@ public class api_TMDB {
                     }
                     in.close();
                 
-                    // Parse JSON response
                     JSONObject jsonResponse = new JSONObject(response.toString());
                     JSONArray results = jsonResponse.getJSONArray("results");
                     for (int j = 0; j < results.length(); j++) {

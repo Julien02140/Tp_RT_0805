@@ -12,11 +12,8 @@
                 <a href="/rest/supprimer_film?film_id=${film.id}">
                     <button type="button" class="btn btn-primary">supprimer le film</button>
                 </a>
-                <!-- Affichage du titre du film -->
                 <h5>${film.title}</h5>
-                <!-- Lien vers la description du film avec l'ID du film -->
                 <a href="/rest/description_film?film_id=${film.id}">
-                    <!-- Image du poster du film avec l'URL de l'image -->
                     <img src="https://image.tmdb.org/t/p/w342/${film.posterPath}" alt="${film.title} Poster">
                 </a>
             </li>

@@ -11,8 +11,6 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlRootElement;
@@ -126,7 +124,6 @@ public class Utilisateur extends Personne implements Serializable{
                     for (int i = 0; i < utilisateurs.size(); i++) {
                         Utilisateur user = utilisateurs.get(i);
                         if(user.getEmail().equals(this.getEmail())){
-                            //utilisateur a supprimé trouvé
                             utilisateurs.remove(i);
                         }
                     }
