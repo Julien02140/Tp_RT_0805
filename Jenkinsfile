@@ -33,6 +33,9 @@ pipeline {
                     ssh urca@10.11.17.50 "docker rm -f projetrt0910-container || true"
                     ssh urca@10.11.17.50 "docker load < /tmp/projetrt0910.tar"
                     ssh urca@10.11.17.50 "docker run -d --name projetrt0910-container -p 8888:8080 projetrt0910"
+
+                    # On attend que ça monte
+                    sleep 10
                 '''
             }
         }
