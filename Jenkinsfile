@@ -20,7 +20,7 @@ pipeline {
         stage('Docker Run') {
             steps {
                 sh 'docker rm -f projetrt0910-container || true'
-                sh 'docker run -d --name projetrt0910-container -p 8080:8080 projetrt0910'
+                sh 'docker run -d --name projetrt0910-container -p 8888:8080 projetrt0910'
             }
         }
     }
