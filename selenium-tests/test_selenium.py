@@ -16,7 +16,7 @@ driver = webdriver.Chrome(
 )
 
 # Aller sur ton URL
-driver.get("http://10.11.17.50:8888/jakartaee-hello-world")
+driver.get("http://10.11.17.50:8888/jakartaee-hello-world/")
 
 # Vérifier le titre de la page
 assert "template accueil" in driver.title
