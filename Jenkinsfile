@@ -12,6 +12,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Debug WAR') {
+            steps {
+                sh 'ls -lh target/'
+            }
+        }
         stage('Docker Build') {
             steps {
                 sh 'docker build -t projetrt0910 .'
