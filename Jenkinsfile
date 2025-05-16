@@ -40,7 +40,7 @@ pipeline {
             steps {
                 // Exécuter le test Selenium (headless) en local (sur la machine Jenkins)
                 sh '''
-                    source locust-env/bin/activate
+                    . locust-env/bin/activate
                     python selenium-tests/test_selenium.py
                 '''
             }
