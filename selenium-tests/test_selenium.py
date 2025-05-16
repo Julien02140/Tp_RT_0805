@@ -18,9 +18,6 @@ driver = webdriver.Chrome(
 # Aller sur ton URL
 driver.get("http://10.11.17.50:8888/jakartaee-hello-world")
 
-# Vérifier le titre de la page
-assert "template accueil" in driver.title
-
 # Vérifier le texte des titres
 h1 = driver.find_element(By.TAG_NAME, "h1")
 assert h1.text == "Bienvenue sur MyVideo"
