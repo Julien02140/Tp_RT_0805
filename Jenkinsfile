@@ -40,9 +40,7 @@ pipeline {
             steps {
                 sh '''
                     # Créer l'environnement virtuel (test-env) s'il n'existe pas
-                    if [ ! -d "test-env" ]; then
-                        python3 -m venv test-env
-                    fi
+                    python3 -m venv test-env
 
                     # Activer l'environnement virtuel
                     . test-env/bin/activate
