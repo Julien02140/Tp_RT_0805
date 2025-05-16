@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Julien02140/Tp_RT_0805.git'
+                git branch: 'main', url: 'https://github.com/Julien02140/Tp_RT_0805.git'
             }
         }
         stage('Build Maven') {
