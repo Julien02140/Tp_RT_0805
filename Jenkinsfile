@@ -36,11 +36,22 @@ pipeline {
                 '''
             }
         }
-        stage('Selenium Tests') {
+        stage('Setup Python Env and Run Selenium Tests') {
             steps {
-                // Exécuter le test Selenium (headless) en local (sur la machine Jenkins)
                 sh '''
-                    . locust-env/bin/activate
+                    # Créer l'environnement virtuel (test-env) s'il n'existe pas
+                    if [ ! -d "test-env" ]; then
+                        python3 -m venv test-env
+                    fi
+
+                    # Activer l'environnement virtuel
+                    . test-env/bin/activate
+
+                    # Mettre à jour pip et installer les dépendances nécessaires
+                    pip install --upgrade pip
+                    pip install -r requirements.txt
+
+                    # Lancer les tests Selenium
                     python selenium-tests/test_selenium.py
                 '''
             }
