@@ -56,5 +56,15 @@ pipeline {
                 '''
             }
         }
+        stage('Locust Tests') {
+            steps {
+                sh '''
+                    . test-env/bin/activate
+                    locust -f locustfile.py --headless -u 10 -r 2 --run-time 1m --host http://10.11.17.50:8888 --html locust-report.html
+                '''
+                //archive le rapport HTML dans Jenkins
+                archiveArtifacts artifacts: 'locust-report.html', fingerprint: true
+            }
+        }
     }
 }
